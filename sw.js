@@ -1,13 +1,13 @@
 /* ST- & MÅLOPKBT Reunion – service worker
    VERSION opdateres ved hver levering. Gamle caches slettes automatisk,
    og siden genindlæses selv, når en ny version er aktiv. */
-const VERSION = '2026-09-25-1';
+const VERSION = '2026-09-25-2';
 const CACHE = 'malopkbt-reunion-' + VERSION;
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './hero.jpeg',
+  './hero-banner.jpg',
   './icon-192.png',
   './icon-512.png',
   './apple-touch-icon.png'
