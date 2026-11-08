@@ -1,0 +1,34 @@
+[
+  {
+    "tid": "14.30",
+    "titel": "Velkomst og gensyn",
+    "sted": "Varde Kaserne",
+    "beskrivelse": "",
+    "status": "",
+    "vis": true
+  },
+  {
+    "tid": "",
+    "titel": "Rundvisning / foredrag",
+    "sted": "",
+    "beskrivelse": "Besøg på kasernen og fælles program.",
+    "status": "Under planlægning",
+    "vis": true
+  },
+  {
+    "tid": "Sen eftermiddag",
+    "titel": "Afgang",
+    "sted": "",
+    "beskrivelse": "Videre til Big Ben / Restaurant Gl. Daws.",
+    "status": "Ikke endeligt bekræftet",
+    "vis": true
+  },
+  {
+    "tid": "Aften",
+    "titel": "Middag og kammeratskab",
+    "sted": "",
+    "beskrivelse": "Alternativt undersøges mulighed for spisning på Varde Kaserne.",
+    "status": "Under planlægning",
+    "vis": true
+  }
+]
