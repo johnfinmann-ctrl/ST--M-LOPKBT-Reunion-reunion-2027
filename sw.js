@@ -2,7 +2,7 @@
    VERSION opdateres ved hver levering. Alle tidligere caches slettes automatisk,
    og siden genindlæses selv, når en ny version er aktiv.
    Kun egne filer håndteres; kald til andre domæner berøres ikke og caches aldrig. */
-const VERSION = '2026-11-08-2';
+const VERSION = '2026-11-08-3';
 const CACHE = 'malopkbt-reunion-' + VERSION;
 const SHELL = [
   './',

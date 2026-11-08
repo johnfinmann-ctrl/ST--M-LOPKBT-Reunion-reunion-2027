@@ -31,7 +31,7 @@ body{background:#1a2217;background-image:none}
 #home .card b{margin-top:0}
 #home .notice{background:#f8f1dff5}
 #home .credit{color:#f3ead0;opacity:.9;text-shadow:0 1px 3px #000c}
-#home.active{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}#home .content{flex:1}.app:has(#home.active){background:#1e2a1c}
+.app:has(#home.active){background:#1e2a1c}
 
 /* Top = samme M113-foto og titelbjælke som login-skærmen */
 #home .heroimg{width:100%;max-width:none;margin-left:0;height:200px;object-position:50% 0%}
@@ -40,15 +40,38 @@ body{background:#1a2217;background-image:none}
 #home .herooverlay p{font-size:14px;margin:0}
 @media(min-width:650px){#home .heroimg{height:320px}#home .herooverlay{padding:14px 18px 16px}#home .herooverlay h1{font-size:27px}#home .herooverlay p{font-size:16px}}
 .homeintro{margin:2px 2px 14px}.homeintro .motto{margin:0 0 8px;color:#f3ead0;font-style:italic;font-size:15px;text-shadow:0 1px 3px #000c}.homeintro .datebox{margin-top:0}
+
+/* Finjustering nov. 2026: militære kort, radarvindue, stregikoner */
+#home .content{background-image:linear-gradient(180deg,rgba(17,24,15,.55) 0%,rgba(17,24,15,.18) 22%,rgba(17,24,15,.22) 40%,rgba(17,24,15,.60) 62%,rgba(17,24,15,.72) 100%),url("./baggrund-radar.jpg");background-position:center,center top;padding-bottom:22px}
+#home.active{display:flex;flex-direction:column;min-height:calc(100vh - 84px - env(safe-area-inset-bottom,0px));min-height:calc(100dvh - 84px - env(safe-area-inset-bottom,0px))}
+#home .content{flex:1;display:flex;flex-direction:column}
+.radarwin{flex:1 0 150px}
+@media(max-width:599px){#home.active{min-height:calc(100vh - 66px - env(safe-area-inset-bottom,0px));min-height:calc(100dvh - 66px - env(safe-area-inset-bottom,0px))}}
+@media(min-width:650px){.radarwin{flex-basis:230px}}
+#home .pill{display:inline-flex;align-items:center;gap:6px;background:rgba(24,32,20,.78);color:#fff;border:1px solid #c9b98a;border-radius:2px;font-weight:700}
+.pico{width:15px;height:15px;color:#d8c99e;flex:none}
+#home .newsnotice{background:rgba(26,35,22,.9);border:1px solid #c9b98a;border-left:3px solid #c9b98a;border-radius:2px;color:#fff;box-shadow:0 4px 14px #0004;margin-bottom:10px}
+#home .newsnotice .nlabel{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d8c99e;margin-bottom:4px}
+#home .newsnotice #homeNewsTitle{color:#fff;font-size:16px}
+#home .newsnotice .nmore{color:#e4dcc6}
+#home .homegrid{gap:10px}
+#home .card{background:rgba(30,40,25,.9);border:1px solid #c9b98a;border-radius:2px;color:#fff;padding:13px 13px 14px;box-shadow:0 4px 14px #0004;min-height:0}
+#home .card b{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-top:0}
+#home .card .cnum{font-style:normal;color:#d8c99e;font-weight:600;letter-spacing:.06em}
+#home .card span{color:#e0d8c2;font-size:13px;margin-top:4px}
+#home .card:active{background:rgba(44,56,36,.95)}
+@media(max-width:599px){#home .card{padding:12px 11px 13px}#home .card b{font-size:13.5px;letter-spacing:.04em;white-space:nowrap}#home .card span{font-size:12.5px}}
+.nav i{height:24px;display:flex;justify-content:center;margin-bottom:2px}
+.nav .ico{width:23px;height:23px}
 </style></head><body><div class="sbar" aria-hidden="true"></div><div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Billede"><button type="button" class="lbclose" onclick="closePhoto()" aria-label="Luk">×</button><div class="lbimgwrap"><img id="lbImg" alt=""></div><div class="lbcap"><b id="lbTitle"></b><span id="lbMeta"></span><p id="lbDesc"></p></div></div><main class="app">
-<section id="home" class="section active"><header class="hero"><img class="heroimg" src="./hero-login.jpg" alt="Soldat ved Morterpejleradar M113 – Artilleriet i Varde" width="1659" height="948" fetchpriority="high"><div class="herooverlay"><h1>ST- &amp; MÅLOPKBT Reunion</h1><p>Reunion 2027 · Varde Kaserne</p></div></header><div class="content"><div class="homeintro"><div class="motto" id="rMotto">“Skuld gammel venskab rejn forgå”</div><div class="datebox"><div class="pill">📅 <span data-r="dato">Lørdag 29. maj 2027</span></div><div class="pill">📍 <span data-r="sted">Varde Kaserne</span></div></div></div><button type="button" class="notice newsnotice hidden" id="homeNews" onclick="show('news',navBtn('news'))"><b>Seneste nyt</b><span id="homeNewsTitle"></span><span class="nmore" id="homeNewsText"></span></button><div class="grid">
-<button class="card" onclick="show('reunion')"><b>Reunion 2027</b><span id="cReunion">Velkomst og praktisk</span></button>
-<button class="card" onclick="show('program',navBtn('program'))"><b>Program</b><span id="cProgram">Tider og steder</span></button>
-<button class="card" onclick="show('news',navBtn('news'))"><b>Nyheder</b><span id="cNews">Seneste nyt</span></button>
-<button class="card" id="cardEvents" onclick="show('events')"><b>Arrangementer</b><span id="cEvents">Datoer og steder</span></button>
-<button class="card" id="cardHistory" onclick="show('history')"><b>Historie</b><span>ST- &amp; MÅLOPKBT</span></button>
-<button class="card" id="cardPhotos" onclick="show('photos',navBtn('photos'))"><b>Billeder</b><span id="cPhotos">Godkendte billeder</span></button>
-<button class="card" id="cardContact" onclick="show('contact',navBtn('contact'))"><b>Kontakt</b><span>Arrangører</span></button></div><p class="credit">Udviklet af Nordic Operations</p></div></section>
+<section id="home" class="section active"><header class="hero"><img class="heroimg" src="./hero-login.jpg" alt="Soldat ved Morterpejleradar M113 – Artilleriet i Varde" width="1659" height="948" fetchpriority="high"><div class="herooverlay"><h1>ST- &amp; MÅLOPKBT Reunion</h1><p>Reunion 2027 · Varde Kaserne</p></div></header><div class="content"><div class="homeintro"><div class="motto" id="rMotto">“Skuld gammel venskab rejn forgå”</div><div class="datebox"><div class="pill"><svg class="pico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-r="dato">Lørdag 29. maj 2027</span></div><div class="pill"><svg class="pico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6.2-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 14.8 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.3"/></svg><span data-r="sted">Varde Kaserne</span></div></div></div><div class="radarwin" aria-hidden="true"></div><button type="button" class="notice newsnotice hidden" id="homeNews" onclick="show('news',navBtn('news'))"><b class="nlabel">Seneste nyt</b><span id="homeNewsTitle"></span><span class="nmore" id="homeNewsText"></span></button><div class="grid homegrid">
+<button class="card" onclick="show('program',navBtn('program'))"><b><em class="cnum"></em>Program</b><span id="cProgram">Tider og steder</span></button>
+<button class="card" onclick="show('news',navBtn('news'))"><b><em class="cnum"></em>Nyheder</b><span id="cNews">Seneste nyt</span></button>
+<button class="card" onclick="show('reunion')"><b><em class="cnum"></em>Reunion 2027</b><span id="cReunion">Velkomst og praktisk</span></button>
+<button class="card" id="cardEvents" onclick="show('events')"><b><em class="cnum"></em>Arrangementer</b><span id="cEvents">Datoer og steder</span></button>
+<button class="card" id="cardHistory" onclick="show('history')"><b><em class="cnum"></em>Historie</b><span>ST- &amp; MÅLOPKBT</span></button>
+<button class="card" id="cardPhotos" onclick="show('photos',navBtn('photos'))"><b><em class="cnum"></em>Billeder</b><span id="cPhotos">Godkendte billeder</span></button>
+<button class="card" id="cardContact" onclick="show('contact',navBtn('contact'))"><b><em class="cnum"></em>Kontakt</b><span>Arrangører</span></button></div><p class="credit">Udviklet af Nordic Operations</p></div></section>
 <section id="reunion" class="section"><div class="bar"><button class="back" onclick="show('home',navBtn('home'))" aria-label="Tilbage">‹</button><h2>Reunion 2027</h2></div><div class="panel"><h3><span data-r="dato">Lørdag 29. maj 2027</span> · <span data-r="sted">Varde Kaserne</span></h3><div class="rtext" id="rVelkomst"></div></div><div class="panel" id="rPraktiskWrap"><h3>Praktisk</h3><div class="rtext" id="rPraktisk"></div></div></section>
 <section id="program" class="section"><div class="bar"><button class="back" onclick="show('home',navBtn('home'))" aria-label="Tilbage">‹</button><h2>Program</h2></div><div class="panel"><h3 data-r="dato">Lørdag 29. maj 2027</h3><p class="pstatus hidden" id="progStatus"></p><div class="timeline" id="programList"></div></div></section>
 <section id="news" class="section"><div class="bar"><button class="back" onclick="show('home',navBtn('home'))" aria-label="Tilbage">‹</button><h2>Nyheder</h2></div><div id="newsList"></div></section>
@@ -56,7 +79,7 @@ body{background:#1a2217;background-image:none}
 <section id="history" class="section"><div class="bar"><button class="back" onclick="show('home',navBtn('home'))" aria-label="Tilbage">‹</button><h2>Historie</h2></div><div id="historyList"></div></section>
 <section id="photos" class="section"><div class="bar"><button class="back" onclick="show('home',navBtn('home'))" aria-label="Tilbage">‹</button><h2>Billeder</h2></div><div class="pgrid" id="photoGrid"></div></section>
 <section id="contact" class="section"><div class="bar"><button class="back" onclick="show('home',navBtn('home'))" aria-label="Tilbage">‹</button><h2>Kontakt</h2></div><div id="contactList"></div></section>
-</main><nav class="bottom"><button class="nav active" data-s="home" onclick="show('home',this)"><i>⌂</i>Hjem</button><button class="nav" data-s="program" onclick="show('program',this)"><i>📅</i>Program</button><button class="nav" data-s="news" onclick="show('news',this)"><i>📢</i>Nyheder</button><button class="nav" data-s="photos" onclick="show('photos',this)"><i>📸</i>Billeder</button><button class="nav" data-s="contact" onclick="show('contact',this)"><i>☎️</i>Kontakt</button></nav>
+</main><nav class="bottom"><button class="nav active" data-s="home" onclick="show('home',this)"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/></svg></i>Hjem</button><button class="nav" data-s="program" onclick="show('program',this)"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></i>Program</button><button class="nav" data-s="news" onclick="show('news',this)"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><path d="M7 9h10M7 12.5h10M7 16h6"/></svg></i>Nyheder</button><button class="nav" data-s="photos" onclick="show('photos',this)"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5h3.5l1.8-2.5h6.4l1.8 2.5h3.5V19h-17z"/><circle cx="12" cy="13.2" r="3.3"/></svg></i>Billeder</button><button class="nav" data-s="contact" onclick="show('contact',this)"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h3l1.5 4.5-2 1.5a11 11 0 0 0 5.5 5.5l1.5-2 4.5 1.5v3a1.5 1.5 0 0 1-1.6 1.5C11.4 18.6 5.4 12.6 5 5.1a1.5 1.5 0 0 1 1.5-1.6z"/></svg></i>Kontakt</button></nav>
 <script>
 /* ===== CONFIG – informationsversion =====
    STATIC_MODE: appen henter kun egne filer fra GitHub Pages. Ingen login, ingen database.
@@ -149,6 +172,8 @@ function render() {
   $('cardPhotos').classList.toggle('hidden', !ph.length);
   PHOTOS = ph;
 
+  let n = 0;
+  document.querySelectorAll('.homegrid .card').forEach(c => { if (!c.classList.contains('hidden')) c.querySelector('.cnum').textContent = String(++n).padStart(2, '0') + ' / '; });
   const ct = visible(DATA.kontakt);
   $('contactList').innerHTML = ct.length ? ct.map(c => '<div class="panel ccard"><h3>' + esc(c.navn) + '</h3>' + (c.rolle ? '<div class="meta">' + esc(c.rolle) + '</div>' : '')
     + (c.telefon ? '<a class="cbtn" href="tel:' + esc(String(c.telefon).replace(/[^\d+]/g, '')) + '">📞 ' + esc(c.telefon) + '</a>' : '')
